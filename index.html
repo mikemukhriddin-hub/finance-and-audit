@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketing & Budget Audit | Biznesingizni Rivojlantiring</title>
+    <meta name="description" content="Professional marketing va byudjet auditi. Biznesingizdagi xavflarni aniqlang va reklama byudjetingizni optimallashtiring.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="glow-bg"></div>
+    
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <span class="accent-text">Audit</span>Master
+            </div>
+            <div class="nav-links">
+                <a href="#how-it-works">Qanday ishlaydi?</a>
+                <a href="#audit-tool" class="cta-mini">Auditni Boshlash</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero container">
+            <div class="hero-content">
+                <h1 class="reveal-text">Sizning Reklama Byudjetingiz <span class="gradient-text">Qayerga Ketmoqda?</span></h1>
+                <p class="hero-subtext">Biznesingizni audit qiling, xavflarni aniqlang va har bir sarflangan dollar uchun aniq natija oling.</p>
+                <div class="hero-actions">
+                    <a href="#audit-tool" class="cta-button primary">Tekshirishni Boshlash</a>
+                    <a href="#features" class="cta-button secondary">Batafsil Ma'lumot</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <img src="audit_dashboard_mockup_1776795248218.png" alt="Audit Dashboard Mockup" class="hero-img fade-in">
+            </div>
+        </section>
+        <section id="how-it-works" class="steps-section container">
+            <div class="section-header">
+                <h2>Audit Qanday <span class="accent-text">Ishlaydi?</span></h2>
+                <p>3 ta oson qadamda biznesingiz holatini biling</p>
+            </div>
+            <div class="steps-grid">
+                <div class="step-card glass">
+                    <div class="step-num">01</div>
+                    <h3>Ma'lumotlarni Kiriting</h3>
+                    <p>Oylik daromad maqsadlaringiz va hozirgi ko'rsatkichlaringizni yozing.</p>
+                </div>
+                <div class="step-card glass">
+                    <div class="step-num">02</div>
+                    <h3>Tizimli Tahlil</h3>
+                    <p>Algoritmimiz biznesingizdagi xavflarni va byudjet yo'qotishlarini hisoblaydi.</p>
+                </div>
+                <div class="step-card glass">
+                    <div class="step-num">03</div>
+                    <h3>Natija va Tavsiyalar</h3>
+                    <p>Haqiqiy reklama byudjeti va uni optimallashtirish bo'yicha yo'riqnoma oling.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="features-section container">
+            <div class="section-header">
+                <h2>Nega Bizning <span class="accent-text">Audit?</span></h2>
+            </div>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <i data-lucide="shield-check"></i>
+                    <h4>Xavfsizlik</h4>
+                    <p>Byudjetingiz behuda sarflanishining oldini oluvchi aniq filtrlar.</p>
+                </div>
+                <div class="feature-item">
+                    <i data-lucide="trending-up"></i>
+                    <h4>O'sish Strategiyasi</h4>
+                    <p>Faqat raqamlarga asoslangan reklama rejalashtirish.</p>
+                </div>
+                <div class="feature-item">
+                    <i data-lucide="zap"></i>
+                    <h4>Tezkor Natija</h4>
+                    <p>Bir necha soniya ichida biznesingizning moliyaviy rentabelligini ko'rib chiqing.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="audit-tool" class="audit-section container">
+            <div class="section-header">
+                <h2>Marketing & <span class="accent-text">Budjet Auditi</span></h2>
+                <p>Ma'lumotlarni kiriting va real natijalarni ko'ring</p>
+            </div>
+
+            <div class="audit-grid">
+                <!-- Input Panel -->
+                <div class="input-panel glass">
+                    <div class="form-group">
+                        <label for="income-goal">Oylik DAROMAD maqsadingiz ($)</label>
+                        <input type="number" id="income-goal" value="10000" placeholder="Masalan: 10000">
+                    </div>
+                    <div class="form-group">
+                        <label for="avg-check">O'rtacha chek ($)</label>
+                        <input type="number" id="avg-check" value="60" placeholder="Masalan: 60">
+                    </div>
+                    <div class="form-group">
+                        <label for="conversion">Sotuv konversiyasi (%)</label>
+                        <input type="number" id="conversion" value="30" placeholder="Masalan: 30">
+                    </div>
+                    <div class="form-group">
+                        <label for="lead-price">Lid narxi ($ / Benchmark)</label>
+                        <input type="number" step="0.1" id="lead-price" value="1.0" placeholder="Masalan: 1.0">
+                    </div>
+                    
+                    <div class="toggles">
+                        <div class="toggle-item">
+                            <span>CRM tizimi bormi?</span>
+                            <label class="switch">
+                                <input type="checkbox" id="has-crm">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                        <div class="toggle-item">
+                            <span>Sotuv bo'limi bormi?</span>
+                            <label class="switch">
+                                <input type="checkbox" id="has-sales">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                        <div class="toggle-item">
+                            <span>Ijtimoiy tarmoqlar holati (Upakovka)?</span>
+                            <label class="switch">
+                                <input type="checkbox" id="has-social" checked>
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Results Panel -->
+                <div class="results-panel glass">
+                    <div class="risk-indicator" id="risk-level">
+                        <div class="risk-dot"></div>
+                        <span class="risk-text">Xavf darajasi: Yuqori</span>
+                    </div>
+
+                    <div class="stats-box">
+                        <div class="stat-item">
+                            <span class="label">Kerakli mijozlar soni</span>
+                            <span class="value" id="res-customers">167 ta</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="label">Kerakli lidlar (zayavkalar)</span>
+                            <span class="value" id="res-leads">557 ta</span>
+                        </div>
+                        <div class="stat-item highlight">
+                            <span class="label">Minimal reklama byudjeti</span>
+                            <span class="value primary-color" id="res-min-budget">$557</span>
+                        </div>
+                        <div class="stat-item highlight">
+                            <span class="label">Optimal (Haqiqiy) byudjet</span>
+                            <span class="value secondary-color" id="res-opt-budget">$780</span>
+                        </div>
+                    </div>
+
+                    <div class="warnings" id="warnings-list">
+                        <!-- Warnings dynamically injected -->
+                    </div>
+
+                    <div class="recommendations">
+                        <h3>Tavsiyalar:</h3>
+                        <ul id="recommendations-list">
+                            <li>CRM tizimi (AmoCRM/Bitrix24) o'rnating.</li>
+                            <li>Alohida sotuv menejeri yollang.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="container">
+        <p>&copy; 2026 AuditMaster Pro. Barcha huquqlar himoyalangan.</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
