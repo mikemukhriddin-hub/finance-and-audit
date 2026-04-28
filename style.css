@@ -12,6 +12,18 @@
     --font-main: 'Outfit', sans-serif;
 }
 
+/* Light Mode Variables */
+body.light-mode {
+    --bg-dark: #f5f7fa;
+    --card-bg: rgba(255, 255, 255, 0.8);
+    --border: rgba(0, 0, 0, 0.1);
+    --primary: #0088ff;
+    --secondary: #5a00cc;
+    --text-main: #1a1a1c;
+    --text-dim: #5c5c64;
+    --glow: radial-gradient(circle, rgba(90, 0, 204, 0.08) 0%, rgba(0, 136, 255, 0.04) 50%, transparent 100%);
+}
+
 /* Premium Scrollbar */
 ::-webkit-scrollbar {
     width: 10px;
@@ -52,7 +64,7 @@ body {
     left: 50%;
     width: 60vw;
     height: 60vw;
-    background: radial-gradient(circle, rgba(112, 0, 255, 0.15) 0%, rgba(0, 242, 255, 0.05) 50%, transparent 100%);
+    background: var(--glow, radial-gradient(circle, rgba(112, 0, 255, 0.15) 0%, rgba(0, 242, 255, 0.05) 50%, transparent 100%));
     transform: translate(-50%, -50%);
     z-index: -1;
     pointer-events: none;
@@ -106,6 +118,75 @@ nav {
     border-radius: 8px;
     background: linear-gradient(135deg, var(--primary), var(--secondary));
     color: white !important;
+}
+
+/* Language Selector */
+.lang-selector {
+    position: relative;
+    display: inline-block;
+    margin-right: 1.5rem;
+}
+
+.lang-btn {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    color: var(--text-main);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: inherit;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.lang-btn:hover {
+    border-color: var(--primary);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.lang-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: #151518;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 0.5rem;
+    display: none;
+    flex-direction: column;
+    min-width: 120px;
+    z-index: 1000;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    margin-top: 10px;
+}
+
+.lang-selector:hover .lang-dropdown {
+    display: flex;
+}
+
+.lang-dropdown button {
+    background: none;
+    border: none;
+    color: var(--text-dim);
+    padding: 0.8rem 1rem;
+    text-align: left;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.2s;
+    font-family: inherit;
+    font-size: 0.9rem;
+}
+
+.lang-dropdown button:hover {
+    background: var(--card-bg);
+    color: var(--primary);
+}
+
+body.light-mode .lang-dropdown {
+    background: white;
 }
 
 /* Hero Section */

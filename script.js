@@ -1,4 +1,71 @@
+const translations = {
+    uz: {
+        nav_how: "Qanday ishlaydi?",
+        nav_start: "Auditni Boshlash",
+        hero_title: "Sizning Reklama Byudjetingiz <span class='gradient-text'>Qayerga Ketmoqda?</span>",
+        hero_sub: "Biznesingizni audit qiling, xavflarni aniqlang va har bir sarflangan dollar uchun aniq natija oling.",
+        btn_start: "Tekshirishni Boshlash",
+        btn_more: "Batafsil Ma'lumot",
+        risk_high: "Xavf darajasi: Yuqori",
+        risk_medium: "Xavf darajasi: O'rtacha",
+        risk_low: "Xavf darajasi: Past"
+    },
+    en: {
+        nav_how: "How it works?",
+        nav_start: "Start Audit",
+        hero_title: "Where is Your Ad Budget <span class='gradient-text'>Going?</span>",
+        hero_sub: "Audit your business, identify risks, and get a clear result for every dollar spent.",
+        btn_start: "Start Checking",
+        btn_more: "Learn More",
+        risk_high: "Risk Level: High",
+        risk_medium: "Risk Level: Medium",
+        risk_low: "Risk Level: Low"
+    },
+    ru: {
+        nav_how: "Как это работает?",
+        nav_start: "Начать аудит",
+        hero_title: "Куда уходит ваш <span class='gradient-text'>рекламный бюджет?</span>",
+        hero_sub: "Проведите аудит вашего бизнеса, выявите риски и получите четкий результат за каждый потраченный доллар.",
+        btn_start: "Начать проверку",
+        btn_more: "Подробнее",
+        risk_high: "Уровень риска: Высокий",
+        risk_medium: "Уровень риска: Средний",
+        risk_low: "Уровень риска: Низкий"
+    }
+};
+
+function setLanguage(lang) {
+    localStorage.setItem('preferred_lang', lang);
+    document.getElementById('current-lang').textContent = lang.toUpperCase();
+    
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][key]) {
+            el.innerHTML = translations[lang][key];
+        }
+    });
+
+    // Update dynamic calculations if the function exists
+    if (typeof window.runAudit === 'function') {
+        window.runAudit();
+    }
+}
+
+function initTheme() {
+    const hour = new Date().getHours();
+    const isDayTime = hour >= 6 && hour < 18;
+    
+    if (isDayTime) {
+        document.body.classList.add('light-mode');
+    } else {
+        document.body.classList.remove('light-mode');
+    }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+    initTheme();
+    const savedLang = localStorage.getItem('preferred_lang') || 'uz';
+    setLanguage(savedLang);
     // Select inputs
     const incomeGoalInput = document.getElementById('income-goal');
     const avgCheckInput = document.getElementById('avg-check');
@@ -61,24 +128,25 @@ document.addEventListener('DOMContentLoaded', () => {
         resOptBudget.textContent = `$${finalBudget.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
 
         // Risk Level UI
+        const currentLang = localStorage.getItem('preferred_lang') || 'uz';
         if (penaltyPercent >= 40) {
             riskLevel.style.background = 'rgba(255, 77, 77, 0.1)';
             riskLevel.style.color = '#ff4d4d';
             riskDot.style.background = '#ff4d4d';
             riskDot.style.boxShadow = '0 0 10px #ff4d4d';
-            riskText.textContent = 'Xavf darajasi: Yuqori';
+            riskText.textContent = translations[currentLang].risk_high;
         } else if (penaltyPercent > 0) {
             riskLevel.style.background = 'rgba(255, 204, 0, 0.1)';
             riskLevel.style.color = '#ffcc00';
             riskDot.style.background = '#ffcc00';
             riskDot.style.boxShadow = '0 0 10px #ffcc00';
-            riskText.textContent = "Xavf darajasi: O'rtacha";
+            riskText.textContent = translations[currentLang].risk_medium;
         } else {
             riskLevel.style.background = 'rgba(0, 255, 136, 0.1)';
             riskLevel.style.color = '#00ff88';
             riskDot.style.background = '#00ff88';
             riskDot.style.boxShadow = '0 0 10px #00ff88';
-            riskText.textContent = 'Xavf darajasi: Past';
+            riskText.textContent = translations[currentLang].risk_low;
         }
 
         // Render Warnings
@@ -110,5 +178,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Initial calculation
+    window.runAudit = calculateAudit;
     calculateAudit();
 });

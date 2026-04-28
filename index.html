@@ -20,8 +20,19 @@
                 <span class="accent-text">Audit</span>Master
             </div>
             <div class="nav-links">
-                <a href="#how-it-works">Qanday ishlaydi?</a>
-                <a href="#audit-tool" class="cta-mini">Auditni Boshlash</a>
+                <div class="lang-selector">
+                    <button class="lang-btn" id="lang-active-btn">
+                        <i data-lucide="languages"></i>
+                        <span id="current-lang">UZ</span>
+                    </button>
+                    <div class="lang-dropdown">
+                        <button onclick="setLanguage('uz')">O'zbekcha</button>
+                        <button onclick="setLanguage('en')">English</button>
+                        <button onclick="setLanguage('ru')">Русский</button>
+                    </div>
+                </div>
+                <a href="#how-it-works" data-i18n="nav_how">Qanday ishlaydi?</a>
+                <a href="#audit-tool" class="cta-mini" data-i18n="nav_start">Auditni Boshlash</a>
             </div>
         </nav>
     </header>
@@ -29,11 +40,11 @@
     <main>
         <section class="hero container">
             <div class="hero-content">
-                <h1 class="reveal-text">Sizning Reklama Byudjetingiz <span class="gradient-text">Qayerga Ketmoqda?</span></h1>
-                <p class="hero-subtext">Biznesingizni audit qiling, xavflarni aniqlang va har bir sarflangan dollar uchun aniq natija oling.</p>
+                <h1 class="reveal-text" data-i18n="hero_title">Sizning Reklama Byudjetingiz <span class="gradient-text">Qayerga Ketmoqda?</span></h1>
+                <p class="hero-subtext" data-i18n="hero_sub">Biznesingizni audit qiling, xavflarni aniqlang va har bir sarflangan dollar uchun aniq natija oling.</p>
                 <div class="hero-actions">
-                    <a href="#audit-tool" class="cta-button primary">Tekshirishni Boshlash</a>
-                    <a href="#features" class="cta-button secondary">Batafsil Ma'lumot</a>
+                    <a href="#audit-tool" class="cta-button primary" data-i18n="btn_start">Tekshirishni Boshlash</a>
+                    <a href="#features" class="cta-button secondary" data-i18n="btn_more">Batafsil Ma'lumot</a>
                 </div>
             </div>
             <div class="hero-visual">
