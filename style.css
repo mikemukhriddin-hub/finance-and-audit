@@ -125,6 +125,8 @@ nav {
     position: relative;
     display: inline-block;
     margin-right: 1.5rem;
+    padding-bottom: 15px; /* Safe hover zone */
+    margin-bottom: -15px;
 }
 
 .lang-btn {
@@ -149,7 +151,7 @@ nav {
 
 .lang-dropdown {
     position: absolute;
-    top: 100%;
+    top: 40px;
     right: 0;
     background: #151518;
     border: 1px solid var(--border);
@@ -157,13 +159,24 @@ nav {
     padding: 0.5rem;
     display: none;
     flex-direction: column;
-    min-width: 120px;
-    z-index: 1000;
+    min-width: 140px;
+    z-index: 9999;
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    margin-top: 10px;
+    margin-top: 0; /* No gap */
 }
 
-.lang-selector:hover .lang-dropdown {
+body.light-mode .cta-button.secondary {
+    color: var(--text-main);
+    background: white;
+}
+
+body.light-mode .cta-button.primary {
+    color: white;
+}
+
+/* Show on hover or when parent has .active class */
+.lang-selector:hover .lang-dropdown,
+.lang-selector.active .lang-dropdown {
     display: flex;
 }
 

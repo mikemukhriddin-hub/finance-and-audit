@@ -45,6 +45,9 @@ function setLanguage(lang) {
         }
     });
 
+    // Close dropdown after selection
+    document.querySelector('.lang-selector').classList.remove('active');
+
     // Update dynamic calculations if the function exists
     if (typeof window.runAudit === 'function') {
         window.runAudit();
@@ -63,6 +66,19 @@ function initTheme() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Language Toggle
+    const langBtn = document.getElementById('lang-active-btn');
+    const langSelector = document.querySelector('.lang-selector');
+    
+    langBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        langSelector.classList.toggle('active');
+    });
+
+    document.addEventListener('click', () => {
+        langSelector.classList.remove('active');
+    });
+
     initTheme();
     const savedLang = localStorage.getItem('preferred_lang') || 'uz';
     setLanguage(savedLang);
